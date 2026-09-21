@@ -28,3 +28,5 @@ cleat drop . --app cleat
 ```
 
 Served as a static app at https://cleat.sites.gestaobem.com.
+
+Live: https://cleat.sites.gestaobem.com (EN) · https://cleat.sites.gestaobem.com/pt/ (PT-BR)
