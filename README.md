@@ -29,4 +29,9 @@ cleat drop . --app cleat
 
 Served as a static app at https://cleat.sites.gestaobem.com.
 
+There is **no linked git repo and no push-to-deploy**: the static app `cleat`
+was created with `cleat drop`, so every content change must be published with
+the command above (run `npm run build:css` and commit first if the markup
+changed).
+
 Live: https://cleat.sites.gestaobem.com (EN) · https://cleat.sites.gestaobem.com/pt/ (PT-BR)

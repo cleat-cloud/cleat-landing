@@ -4,7 +4,7 @@
     o Caddy e a unit do systemd para você.
   </p>
   <pre class="overflow-x-auto rounded-lg bg-black/40 p-4 font-mono text-sm text-slate-200"><code># cadastre o servidor uma vez
-cleat servers create --name meu-vps --ip 203.0.113.10 --ssh-key-file ~/.ssh/id_ed25519
+cleat servers create --name web-1 --ip 203.0.113.10 --ssh-key-file ~/.ssh/id_ed25519  # prints its id
 
 # vincule o repositório e faça o deploy
 cleat deploy --repo owner/app --server 5 --host app.example.com --watch</code></pre>
