@@ -3,10 +3,159 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cleat</title>
+  <title>Cleat — self-hosted PaaS over SSH</title>
+  <meta name="description" content="Deploy Phoenix, Go, Node, Rails and static apps to your own servers over SSH, with GitHub push-to-deploy. Panel, CLI and MCP.">
+  <link rel="canonical" href="https://cleat.sites.gestaobem.com/">
+  <link rel="alternate" hreflang="en" href="https://cleat.sites.gestaobem.com/">
+  <link rel="alternate" hreflang="pt-BR" href="https://cleat.sites.gestaobem.com/pt/">
+  <link rel="alternate" hreflang="x-default" href="https://cleat.sites.gestaobem.com/">
   <link rel="stylesheet" href="/assets/styles.css">
+  <script src="/assets/htmx.min.js" defer></script>
 </head>
-<body class="bg-cleat-bg text-slate-100 font-sans">
-  <h1 class="text-4xl font-bold">Cleat</h1>
+<body class="bg-cleat-bg text-slate-100 font-sans antialiased">
+
+  <header class="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+    <a href="/" class="text-lg font-semibold tracking-tight">Cleat</a>
+    <nav class="flex items-center gap-4 text-sm">
+      <a href="https://github.com/puppe1990/cleat-deploy" class="text-slate-300 transition-colors hover:text-white">GitHub</a>
+      <a href="/pt/" class="rounded-md border border-cleat-border px-3 py-1 text-slate-300 transition-colors hover:border-cleat-accent hover:text-white">PT</a>
+    </nav>
+  </header>
+
+  <section class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(56,189,248,0.18),transparent)]"></div>
+    <div class="relative mx-auto max-w-6xl px-6 py-20 text-center sm:py-28">
+      <span class="inline-flex items-center rounded-full border border-cleat-border bg-cleat-surface/60 px-3 py-1 text-xs text-slate-300">
+        Self-hosted PaaS over SSH
+      </span>
+      <h1 class="mx-auto mt-6 max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl">
+        Deploy to your own servers.
+        <span class="text-cleat-accent">Not to someone else&rsquo;s.</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400">
+        Cleat is a control panel, a CLI and an MCP server for deploying
+        Phoenix, Go, Node, Rails and static apps over SSH — with GitHub
+        push-to-deploy.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <a href="#use" class="rounded-lg bg-cleat-accent-strong px-5 py-2.5 font-medium text-white transition-transform hover:-translate-y-0.5 hover:bg-cleat-accent">
+          Get started
+        </a>
+        <a href="https://github.com/puppe1990/cleat-deploy" class="rounded-lg border border-cleat-border px-5 py-2.5 font-medium text-slate-200 transition-colors hover:border-cleat-accent hover:text-white">
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <h2 class="text-sm font-semibold uppercase tracking-widest text-slate-500">Runtimes</h2>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5 transition-colors hover:border-cleat-accent/60">
+        <h3 class="font-semibold">Phoenix / Elixir</h3>
+        <p class="mt-1 text-sm text-slate-400">OTP release, migrations and systemd unit.</p>
+      </article>
+      <article class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5 transition-colors hover:border-cleat-accent/60">
+        <h3 class="font-semibold">Go</h3>
+        <p class="mt-1 text-sm text-slate-400">Cais binaries, built on the VM.</p>
+      </article>
+      <article class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5 transition-colors hover:border-cleat-accent/60">
+        <h3 class="font-semibold">Node</h3>
+        <p class="mt-1 text-sm text-slate-400">Next.js and TanStack Start, self-contained Nitro output.</p>
+      </article>
+      <article class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5 transition-colors hover:border-cleat-accent/60">
+        <h3 class="font-semibold">Ruby on Rails</h3>
+        <p class="mt-1 text-sm text-slate-400">Puma behind Caddy, assets and DB prep.</p>
+      </article>
+      <article class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5 transition-colors hover:border-cleat-accent/60">
+        <h3 class="font-semibold">Static</h3>
+        <p class="mt-1 text-sm text-slate-400">Pure HTML/CSS/JS served by Caddy. No git needed.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="border-y border-cleat-border bg-black/20">
+    <div class="mx-auto max-w-6xl px-6 py-16">
+      <h2 class="text-sm font-semibold uppercase tracking-widest text-slate-500">How it works</h2>
+      <ol class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <li class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5">
+          <span class="text-cleat-accent font-mono text-sm">01</span>
+          <h3 class="mt-2 font-semibold">git push</h3>
+          <p class="mt-1 text-sm text-slate-400">Push to the linked branch.</p>
+        </li>
+        <li class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5">
+          <span class="text-cleat-accent font-mono text-sm">02</span>
+          <h3 class="mt-2 font-semibold">Webhook</h3>
+          <p class="mt-1 text-sm text-slate-400">HMAC-verified, queued with Oban.</p>
+        </li>
+        <li class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5">
+          <span class="text-cleat-accent font-mono text-sm">03</span>
+          <h3 class="mt-2 font-semibold">Build on the VM</h3>
+          <p class="mt-1 text-sm text-slate-400">Cloned and built over SSH.</p>
+        </li>
+        <li class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5">
+          <span class="text-cleat-accent font-mono text-sm">04</span>
+          <h3 class="mt-2 font-semibold">Publish</h3>
+          <p class="mt-1 text-sm text-slate-400">Release, systemd and Caddy.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="use" class="mx-auto max-w-6xl px-6 py-16">
+    <h2 class="text-sm font-semibold uppercase tracking-widest text-slate-500">Three ways to use it</h2>
+    <div class="mt-6" hx-target="#use-panel" hx-swap="innerHTML">
+      <div class="flex gap-2" role="tablist" aria-label="Ways to use Cleat">
+        <button role="tab" aria-selected="true" data-tab="panel"
+                class="rounded-lg border border-cleat-accent bg-cleat-surface px-4 py-2 text-sm font-medium text-white"
+                hx-get="/partials/panel.html">Panel</button>
+        <button role="tab" aria-selected="false" data-tab="cli"
+                class="rounded-lg border border-cleat-border px-4 py-2 text-sm font-medium text-slate-300 hover:border-cleat-accent hover:text-white"
+                hx-get="/partials/cli.html">CLI</button>
+        <button role="tab" aria-selected="false" data-tab="mcp"
+                class="rounded-lg border border-cleat-border px-4 py-2 text-sm font-medium text-slate-300 hover:border-cleat-accent hover:text-white"
+                hx-get="/partials/mcp.html">MCP</button>
+      </div>
+      <div id="use-panel" class="mt-4">
+        <div class="rounded-xl border border-cleat-border bg-cleat-surface/60 p-5">
+          <p class="mb-4 text-sm text-slate-400">
+            Register a VM, link a repo, click Deploy. Cleat provisions Caddy and a
+            systemd unit for you.
+          </p>
+          <pre class="overflow-x-auto rounded-lg bg-black/40 p-4 font-mono text-sm text-slate-200"><code># register the server once
+cleat servers create --name my-vps --ip 203.0.113.10 --ssh-key-file ~/.ssh/id_ed25519
+
+# link the repo and deploy
+cleat deploy --repo owner/app --server my-vps --host app.example.com --watch</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-cleat-border bg-black/20">
+    <div class="mx-auto max-w-6xl px-6 py-16">
+      <h2 class="text-sm font-semibold uppercase tracking-widest text-slate-500">Features</h2>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5"><h3 class="font-semibold">GitHub webhooks</h3><p class="mt-1 text-sm text-slate-400">HMAC-verified push-to-deploy.</p></div>
+        <div class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5"><h3 class="font-semibold">Oban queue</h3><p class="mt-1 text-sm text-slate-400">Background deploys, one per host.</p></div>
+        <div class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5"><h3 class="font-semibold">Live build logs</h3><p class="mt-1 text-sm text-slate-400">Watch the terminal as it builds.</p></div>
+        <div class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5"><h3 class="font-semibold">Encrypted env vars</h3><p class="mt-1 text-sm text-slate-400">Written to the server on deploy.</p></div>
+        <div class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5"><h3 class="font-semibold">Disk &amp; memory</h3><p class="mt-1 text-sm text-slate-400">Per-server usage on the dashboard.</p></div>
+        <div class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5"><h3 class="font-semibold">MCP built in</h3><p class="mt-1 text-sm text-slate-400">Agents deploy without a shell.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-cleat-border">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-10 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+      <p>Deployed with Cleat.</p>
+      <nav class="flex gap-4">
+        <a href="https://github.com/puppe1990/cleat-deploy" class="transition-colors hover:text-white">cleat-deploy</a>
+        <a href="https://github.com/puppe1990/cleat-cli" class="transition-colors hover:text-white">cleat-cli</a>
+        <a href="/pt/" class="transition-colors hover:text-white">Português</a>
+      </nav>
+    </div>
+  </footer>
+
 </body>
 </html>
