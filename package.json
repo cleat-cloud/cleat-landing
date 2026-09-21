@@ -4,7 +4,11 @@
   "private": true,
   "description": "Landing page for Cleat — self-hosted PaaS (htmx + Tailwind, EN/PT-BR)",
   "scripts": {
-    "build:css": "npx --yes @tailwindcss/cli@4 -i src/input.css -o assets/styles.css --minify",
-    "check:css": "npx --yes @tailwindcss/cli@4 -i src/input.css -o /tmp/cleat-landing-check.css --minify && diff -q /tmp/cleat-landing-check.css assets/styles.css"
+    "build:css": "tailwindcss -i src/input.css -o assets/styles.css --minify",
+    "check:css": "tailwindcss -i src/input.css -o /tmp/cleat-landing-check.css --minify && diff -q /tmp/cleat-landing-check.css assets/styles.css"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "tailwindcss": "4.3.3"
   }
 }

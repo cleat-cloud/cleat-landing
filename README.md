@@ -10,10 +10,12 @@ live in `partials/` and `pt/partials/`.
 
 ## Build the CSS
 
-`assets/styles.css` is committed; the deploy runs no build. After changing
-markup or `src/input.css`, regenerate and commit it:
+`assets/styles.css` is committed; the deploy runs no build. Install the pinned
+Tailwind once, then regenerate and commit the CSS after changing markup or
+`src/input.css`:
 
 ```bash
+npm install
 npm run build:css
 ```
 
