@@ -1,0 +1,11 @@
+<div class="rounded-xl border border-cleat-border bg-cleat-surface/60 p-5">
+  <p class="mb-4 text-sm text-slate-400">
+    Register a VM, link a repo, click Deploy. Cleat provisions Caddy and a
+    systemd unit for you.
+  </p>
+  <pre class="overflow-x-auto rounded-lg bg-black/40 p-4 font-mono text-sm text-slate-200"><code># register the server once
+cleat servers create --name my-vps --ip 203.0.113.10 --ssh-key-file ~/.ssh/id_ed25519
+
+# link the repo and deploy
+cleat deploy --repo owner/app --server 5 --host app.example.com --watch</code></pre>
+</div>
