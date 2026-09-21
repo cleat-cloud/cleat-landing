@@ -105,7 +105,8 @@
 
     <section id="use" class="mx-auto max-w-6xl px-6 py-16">
       <h2 class="text-sm font-semibold uppercase tracking-widest text-slate-400">Three ways to use it</h2>
-      <div class="mt-6" hx-target="#use-panel" hx-swap="innerHTML">
+      <div class="mt-6" hx-target="#use-panel" hx-swap="innerHTML"
+           hx-on::after-request="const el=event.detail.elt; document.querySelectorAll('[role=tab]').forEach(t=>{const on=t===el; t.setAttribute('aria-selected',on); t.classList.toggle('border-cleat-accent',on); t.classList.toggle('bg-cleat-surface',on); t.classList.toggle('text-white',on); t.classList.toggle('border-cleat-border',!on); t.classList.toggle('text-slate-300',!on);}); document.getElementById('use-panel').setAttribute('aria-labelledby', el.id);">
         <div class="flex gap-2" role="tablist" aria-label="Ways to use Cleat">
           <button id="tab-panel" type="button" role="tab" aria-selected="true" aria-controls="use-panel" data-tab="panel"
                   class="rounded-lg border border-cleat-accent bg-cleat-surface px-4 py-2 text-sm font-medium text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cleat-accent"
