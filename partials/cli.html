@@ -1,8 +1,10 @@
-<div class="rounded-xl border border-cleat-border bg-cleat-surface/60 p-5">
-  <p class="mb-4 text-sm text-slate-400">
-    One binary. Deploy, tail build logs, manage env vars, all from the terminal.
-  </p>
-  <pre class="overflow-x-auto rounded-lg bg-black/40 p-4 font-mono text-sm text-slate-200"><code>cleat login --panel https://paas.example.com
+<div class="paas-card overflow-hidden">
+  <div class="border-b border-hd-border bg-hd-aside px-5 py-3">
+    <p class="text-sm text-hd-muted">
+      One binary. Deploy, tail build logs, manage env vars, all from the terminal.
+    </p>
+  </div>
+  <pre class="overflow-x-auto p-5 font-mono text-xs leading-relaxed text-hd-muted"><code>cleat login --panel https://paas.example.com
 cleat deploy lumina --watch
 cleat logs 42 --follow
 cleat env set lumina DATABASE_FILE=/var/lib/lumina/lumina.db --deploy</code></pre>

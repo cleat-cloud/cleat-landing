@@ -1,10 +1,12 @@
-<div class="rounded-xl border border-cleat-border bg-cleat-surface/60 p-5">
-  <p class="mb-4 text-sm text-slate-400">
-    Cadastre uma VM, vincule um repositório, clique em Deploy. O Cleat provisiona
-    o Caddy e a unit do systemd para você.
-  </p>
-  <pre class="overflow-x-auto rounded-lg bg-black/40 p-4 font-mono text-sm text-slate-200"><code># cadastre o servidor uma vez
-cleat servers create --name web-1 --ip 203.0.113.10 --ssh-key-file ~/.ssh/id_ed25519  # prints its id
+<div class="paas-card overflow-hidden">
+  <div class="border-b border-hd-border bg-hd-aside px-5 py-3">
+    <p class="text-sm text-hd-muted">
+      Cadastre uma VM, vincule um repositório, clique em Deploy. O Cleat provisiona
+      o Caddy e a unit do systemd para você.
+    </p>
+  </div>
+  <pre class="overflow-x-auto p-5 font-mono text-xs leading-relaxed text-hd-muted"><code># cadastre o servidor uma vez
+cleat servers create --name web-1 --ip 203.0.113.10 --ssh-key-file ~/.ssh/id_ed25519  # imprime o id
 
 # vincule o repositório e faça o deploy
 cleat deploy --repo owner/app --server 5 --host app.example.com --watch</code></pre>

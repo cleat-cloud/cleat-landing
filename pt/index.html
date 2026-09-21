@@ -9,122 +9,147 @@
   <link rel="alternate" hreflang="en" href="https://cleat.sites.gestaobem.com/">
   <link rel="alternate" hreflang="pt-BR" href="https://cleat.sites.gestaobem.com/pt/">
   <link rel="alternate" hreflang="x-default" href="https://cleat.sites.gestaobem.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/styles.css">
   <script src="/assets/htmx.min.js" defer></script>
 </head>
-<body class="bg-cleat-bg text-slate-100 font-sans antialiased">
+<body class="bg-hd-bg text-hd-text font-sans antialiased">
 
-  <header class="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-    <a href="/pt/" class="text-lg font-semibold tracking-tight">Cleat</a>
-    <nav aria-label="Principal" class="flex items-center gap-4 text-sm">
-      <a href="https://github.com/puppe1990/cleat-deploy" class="text-slate-300 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cleat-accent">GitHub</a>
-      <a href="/" class="rounded-md border border-cleat-border px-3 py-1 text-slate-300 transition-colors hover:border-cleat-accent hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cleat-accent">EN</a>
-    </nav>
+  <header class="border-b border-hd-border bg-hd-aside/80 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+      <a href="/pt/" class="flex items-center gap-2 font-display text-lg font-bold tracking-tight">
+        <span class="landing-rule h-4 w-1 rounded-full"></span>
+        Cleat
+      </a>
+      <nav aria-label="Principal" class="flex items-center gap-2 text-xs">
+        <a href="https://github.com/puppe1990/cleat-deploy" class="paas-btn-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hd-orange">GitHub</a>
+        <a href="/" class="paas-btn-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hd-orange">EN</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="relative overflow-hidden">
-      <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(56,189,248,0.18),transparent)]"></div>
-      <div class="relative mx-auto max-w-6xl px-6 py-20 text-center sm:py-28">
-        <span class="inline-flex items-center rounded-full border border-cleat-border bg-cleat-surface/60 px-3 py-1 text-xs text-slate-300">
-          PaaS self-hosted via SSH
-        </span>
-        <h1 class="mx-auto mt-6 max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl">
+    <section class="relative overflow-hidden border-b border-hd-border paas-grid-bg">
+      <div class="landing-hero-glow pointer-events-none absolute inset-0"></div>
+      <div class="relative mx-auto max-w-6xl px-6 py-20 sm:py-28">
+        <span class="paas-kicker">PaaS self-hosted via SSH</span>
+        <h1 class="mt-4 max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
           Deploy nos seus servidores.
-          <span class="text-cleat-accent">Não nos de outra pessoa.</span>
+          <span class="text-hd-orange">Não nos de outra pessoa.</span>
         </h1>
-        <p class="mx-auto mt-6 max-w-2xl text-lg text-slate-400">
+        <p class="mt-6 max-w-2xl text-lg text-hd-muted">
           O Cleat é um painel, um CLI e um servidor MCP para fazer deploy de apps
           Phoenix, Go, Node, Rails e estáticos via SSH — com push-to-deploy do GitHub.
         </p>
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <a href="#use" class="rounded-lg bg-cleat-accent-strong px-5 py-2.5 font-medium text-cleat-bg transition-transform hover:-translate-y-0.5 hover:bg-cleat-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cleat-accent">
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href="#use" class="paas-btn-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hd-orange">
             Começar
           </a>
-          <a href="https://github.com/puppe1990/cleat-deploy" class="rounded-lg border border-cleat-border px-5 py-2.5 font-medium text-slate-200 transition-colors hover:border-cleat-accent hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cleat-accent">
+          <a href="https://github.com/puppe1990/cleat-deploy" class="paas-btn-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hd-orange">
             Ver no GitHub
           </a>
+        </div>
+        <div class="paas-card mt-12 max-w-2xl overflow-hidden">
+          <div class="flex items-center justify-between border-b border-hd-border bg-hd-aside px-4 py-2">
+            <span class="font-mono text-xs text-hd-muted">deploy lumina</span>
+            <span class="flex items-center gap-1.5 font-mono text-xs text-hd-green">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-hd-green"></span> sucesso
+            </span>
+          </div>
+          <div class="h-0.5 w-full overflow-hidden bg-hd-border">
+            <div class="deploy-progress h-full"></div>
+          </div>
+          <pre class="overflow-x-auto p-4 font-mono text-xs leading-relaxed text-hd-muted"><code>==&gt; [ 1s] Node v22.23.2, npm 10.9.8
+==&gt; [13s] Building
+==&gt; [20s] Saída Nitro independente; removendo node_modules
+==&gt; [21s] Publicando em /opt/lumina/releases/build
+==&gt; [25s] Done in 25s
+==&gt; Deployment successful — live at lumina.apps.example.com</code></pre>
         </div>
       </div>
     </section>
 
     <section class="mx-auto max-w-6xl px-6 py-16">
-      <h2 class="text-sm font-semibold uppercase tracking-widest text-slate-400">Runtimes</h2>
+      <h2 class="paas-kicker">Runtimes</h2>
       <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <article class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5 transition-colors hover:border-cleat-accent/60">
-          <h3 class="font-semibold">Phoenix / Elixir</h3>
-          <p class="mt-1 text-sm text-slate-400">Release OTP, migrations e unit do systemd.</p>
+        <article class="paas-card p-5 transition-colors hover:border-hd-orange/60">
+          <h3 class="font-display font-semibold">Phoenix / Elixir</h3>
+          <p class="mt-1 text-sm text-hd-muted">Release OTP, migrations e unit do systemd.</p>
         </article>
-        <article class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5 transition-colors hover:border-cleat-accent/60">
-          <h3 class="font-semibold">Go</h3>
-          <p class="mt-1 text-sm text-slate-400">Binários Cais, compilados na VM.</p>
+        <article class="paas-card p-5 transition-colors hover:border-hd-orange/60">
+          <h3 class="font-display font-semibold">Go</h3>
+          <p class="mt-1 text-sm text-hd-muted">Binários Cais, compilados na VM.</p>
         </article>
-        <article class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5 transition-colors hover:border-cleat-accent/60">
-          <h3 class="font-semibold">Node</h3>
-          <p class="mt-1 text-sm text-slate-400">Next.js e TanStack Start, saída Nitro independente.</p>
+        <article class="paas-card p-5 transition-colors hover:border-hd-orange/60">
+          <h3 class="font-display font-semibold">Node</h3>
+          <p class="mt-1 text-sm text-hd-muted">Next.js e TanStack Start, saída Nitro independente.</p>
         </article>
-        <article class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5 transition-colors hover:border-cleat-accent/60">
-          <h3 class="font-semibold">Ruby on Rails</h3>
-          <p class="mt-1 text-sm text-slate-400">Puma atrás do Caddy, assets e preparo do banco.</p>
+        <article class="paas-card p-5 transition-colors hover:border-hd-orange/60">
+          <h3 class="font-display font-semibold">Ruby on Rails</h3>
+          <p class="mt-1 text-sm text-hd-muted">Puma atrás do Caddy, assets e preparo do banco.</p>
         </article>
-        <article class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5 transition-colors hover:border-cleat-accent/60">
-          <h3 class="font-semibold">Estático</h3>
-          <p class="mt-1 text-sm text-slate-400">HTML/CSS/JS puro servido pelo Caddy. Sem git.</p>
+        <article class="paas-card p-5 transition-colors hover:border-hd-orange/60">
+          <h3 class="font-display font-semibold">Estático</h3>
+          <p class="mt-1 text-sm text-hd-muted">HTML/CSS/JS puro servido pelo Caddy. Sem git.</p>
         </article>
       </div>
     </section>
 
-    <section class="border-y border-cleat-border bg-black/20">
+    <section class="border-y border-hd-border bg-hd-aside/60">
       <div class="mx-auto max-w-6xl px-6 py-16">
-        <h2 class="text-sm font-semibold uppercase tracking-widest text-slate-400">Como funciona</h2>
+        <h2 class="paas-kicker">Como funciona</h2>
         <ol class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <li class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5">
-            <span class="text-cleat-accent font-mono text-sm">01</span>
-            <h3 class="mt-2 font-semibold">git push</h3>
-            <p class="mt-1 text-sm text-slate-400">Push na branch vinculada.</p>
+          <li class="paas-card p-5">
+            <span class="font-mono text-sm text-hd-orange">01</span>
+            <h3 class="mt-2 font-display font-semibold">git push</h3>
+            <p class="mt-1 text-sm text-hd-muted">Push na branch vinculada.</p>
           </li>
-          <li class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5">
-            <span class="text-cleat-accent font-mono text-sm">02</span>
-            <h3 class="mt-2 font-semibold">Webhook</h3>
-            <p class="mt-1 text-sm text-slate-400">Verificado por HMAC, enfileirado no Oban.</p>
+          <li class="paas-card p-5">
+            <span class="font-mono text-sm text-hd-orange">02</span>
+            <h3 class="mt-2 font-display font-semibold">Webhook</h3>
+            <p class="mt-1 text-sm text-hd-muted">Verificado por HMAC, enfileirado no Oban.</p>
           </li>
-          <li class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5">
-            <span class="text-cleat-accent font-mono text-sm">03</span>
-            <h3 class="mt-2 font-semibold">Build na VM</h3>
-            <p class="mt-1 text-sm text-slate-400">Clonado e compilado via SSH.</p>
+          <li class="paas-card p-5">
+            <span class="font-mono text-sm text-hd-orange">03</span>
+            <h3 class="mt-2 font-display font-semibold">Build na VM</h3>
+            <p class="mt-1 text-sm text-hd-muted">Clonado e compilado via SSH.</p>
           </li>
-          <li class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5">
-            <span class="text-cleat-accent font-mono text-sm">04</span>
-            <h3 class="mt-2 font-semibold">Publicar</h3>
-            <p class="mt-1 text-sm text-slate-400">Release, systemd e Caddy.</p>
+          <li class="paas-card p-5">
+            <span class="font-mono text-sm text-hd-orange">04</span>
+            <h3 class="mt-2 font-display font-semibold">Publicar</h3>
+            <p class="mt-1 text-sm text-hd-muted">Release, systemd e Caddy.</p>
           </li>
         </ol>
       </div>
     </section>
 
     <section id="use" class="mx-auto max-w-6xl px-6 py-16">
-      <h2 class="text-sm font-semibold uppercase tracking-widest text-slate-400">Três formas de usar</h2>
+      <h2 class="paas-kicker">Três formas de usar</h2>
       <div class="mt-6" hx-target="#use-panel" hx-swap="innerHTML"
-           hx-on::after-request="const el=event.detail.elt; document.querySelectorAll('[role=tab]').forEach(t=>{const on=t===el; t.setAttribute('aria-selected',on); t.classList.toggle('border-cleat-accent',on); t.classList.toggle('bg-cleat-surface',on); t.classList.toggle('text-white',on); t.classList.toggle('border-cleat-border',!on); t.classList.toggle('text-slate-300',!on);}); document.getElementById('use-panel').setAttribute('aria-labelledby', el.id);">
+           hx-on::after-request="const el=event.detail.elt; document.querySelectorAll('[role=tab]').forEach(t=>{const on=t===el; t.setAttribute('aria-selected',on); t.classList.toggle('bg-hd-orange',on); t.classList.toggle('text-hd-bg',on); t.classList.toggle('bg-hd-card',!on); t.classList.toggle('text-hd-muted',!on);}); document.getElementById('use-panel').setAttribute('aria-labelledby', el.id);">
         <div class="flex gap-2" role="tablist" aria-label="Formas de usar o Cleat">
           <button id="tab-panel" type="button" role="tab" aria-selected="true" aria-controls="use-panel" data-tab="panel"
-                  class="rounded-lg border border-cleat-accent bg-cleat-surface px-4 py-2 text-sm font-medium text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cleat-accent"
+                  class="rounded-md border border-hd-border bg-hd-orange px-4 py-2 font-mono text-xs font-semibold text-hd-bg transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hd-orange"
                   hx-get="/pt/partials/panel.html">Painel</button>
           <button id="tab-cli" type="button" role="tab" aria-selected="false" aria-controls="use-panel" data-tab="cli"
-                  class="rounded-lg border border-cleat-border px-4 py-2 text-sm font-medium text-slate-300 hover:border-cleat-accent hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cleat-accent"
+                  class="rounded-md border border-hd-border bg-hd-card px-4 py-2 font-mono text-xs font-semibold text-hd-muted transition-colors hover:text-hd-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hd-orange"
                   hx-get="/pt/partials/cli.html">CLI</button>
           <button id="tab-mcp" type="button" role="tab" aria-selected="false" aria-controls="use-panel" data-tab="mcp"
-                  class="rounded-lg border border-cleat-border px-4 py-2 text-sm font-medium text-slate-300 hover:border-cleat-accent hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cleat-accent"
+                  class="rounded-md border border-hd-border bg-hd-card px-4 py-2 font-mono text-xs font-semibold text-hd-muted transition-colors hover:text-hd-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hd-orange"
                   hx-get="/pt/partials/mcp.html">MCP</button>
         </div>
         <div id="use-panel" role="tabpanel" aria-labelledby="tab-panel" class="mt-4">
-          <div class="rounded-xl border border-cleat-border bg-cleat-surface/60 p-5">
-            <p class="mb-4 text-sm text-slate-400">
-              Cadastre uma VM, vincule um repositório, clique em Deploy. O Cleat provisiona
-              o Caddy e a unit do systemd para você.
-            </p>
-            <pre class="overflow-x-auto rounded-lg bg-black/40 p-4 font-mono text-sm text-slate-200"><code># cadastre o servidor uma vez
-cleat servers create --name web-1 --ip 203.0.113.10 --ssh-key-file ~/.ssh/id_ed25519  # prints its id
+          <div class="paas-card overflow-hidden">
+            <div class="border-b border-hd-border bg-hd-aside px-5 py-3">
+              <p class="text-sm text-hd-muted">
+                Cadastre uma VM, vincule um repositório, clique em Deploy. O Cleat provisiona
+                o Caddy e a unit do systemd para você.
+              </p>
+            </div>
+            <pre class="overflow-x-auto p-5 font-mono text-xs leading-relaxed text-hd-muted"><code># cadastre o servidor uma vez
+cleat servers create --name web-1 --ip 203.0.113.10 --ssh-key-file ~/.ssh/id_ed25519  # imprime o id
 
 # vincule o repositório e faça o deploy
 cleat deploy --repo owner/app --server 5 --host app.example.com --watch</code></pre>
@@ -133,28 +158,28 @@ cleat deploy --repo owner/app --server 5 --host app.example.com --watch</code></
       </div>
     </section>
 
-    <section class="border-t border-cleat-border bg-black/20">
+    <section class="border-t border-hd-border bg-hd-aside/60">
       <div class="mx-auto max-w-6xl px-6 py-16">
-        <h2 class="text-sm font-semibold uppercase tracking-widest text-slate-400">Recursos</h2>
+        <h2 class="paas-kicker">Recursos</h2>
         <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5"><h3 class="font-semibold">Webhooks do GitHub</h3><p class="mt-1 text-sm text-slate-400">Push-to-deploy verificado por HMAC.</p></div>
-          <div class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5"><h3 class="font-semibold">Fila Oban</h3><p class="mt-1 text-sm text-slate-400">Deploys em segundo plano, um por host.</p></div>
-          <div class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5"><h3 class="font-semibold">Logs de build ao vivo</h3><p class="mt-1 text-sm text-slate-400">Acompanhe o terminal enquanto compila.</p></div>
-          <div class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5"><h3 class="font-semibold">Variáveis de ambiente criptografadas</h3><p class="mt-1 text-sm text-slate-400">Gravadas no servidor no deploy.</p></div>
-          <div class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5"><h3 class="font-semibold">Disco e memória</h3><p class="mt-1 text-sm text-slate-400">Uso por servidor no dashboard.</p></div>
-          <div class="rounded-xl border border-cleat-border bg-cleat-surface/40 p-5"><h3 class="font-semibold">MCP embutido</h3><p class="mt-1 text-sm text-slate-400">Agentes fazem deploy sem shell.</p></div>
+          <div class="paas-card p-5"><h3 class="font-display font-semibold">Webhooks do GitHub</h3><p class="mt-1 text-sm text-hd-muted">Push-to-deploy verificado por HMAC.</p></div>
+          <div class="paas-card p-5"><h3 class="font-display font-semibold">Fila Oban</h3><p class="mt-1 text-sm text-hd-muted">Deploys em segundo plano, um por host.</p></div>
+          <div class="paas-card p-5"><h3 class="font-display font-semibold">Logs de build ao vivo</h3><p class="mt-1 text-sm text-hd-muted">Acompanhe o terminal enquanto compila.</p></div>
+          <div class="paas-card p-5"><h3 class="font-display font-semibold">Variáveis de ambiente criptografadas</h3><p class="mt-1 text-sm text-hd-muted">Gravadas no servidor no deploy.</p></div>
+          <div class="paas-card p-5"><h3 class="font-display font-semibold">Disco e memória</h3><p class="mt-1 text-sm text-hd-muted">Uso por servidor no dashboard.</p></div>
+          <div class="paas-card p-5"><h3 class="font-display font-semibold">MCP embutido</h3><p class="mt-1 text-sm text-hd-muted">Agentes fazem deploy sem shell.</p></div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-cleat-border">
-    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-10 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-      <p>Publicado com Cleat.</p>
-      <nav aria-label="Rodapé" class="flex gap-4">
-        <a href="https://github.com/puppe1990/cleat-deploy" class="transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cleat-accent">cleat-deploy</a>
-        <a href="https://github.com/puppe1990/cleat-cli" class="transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cleat-accent">cleat-cli</a>
-        <a href="/" class="transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cleat-accent">English</a>
+  <footer class="border-t border-hd-border">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-10 text-sm text-hd-muted sm:flex-row sm:items-center sm:justify-between">
+      <p class="font-mono text-xs">Publicado com Cleat.</p>
+      <nav aria-label="Rodapé" class="flex gap-4 font-mono text-xs">
+        <a href="https://github.com/puppe1990/cleat-deploy" class="transition-colors hover:text-hd-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hd-orange">cleat-deploy</a>
+        <a href="https://github.com/puppe1990/cleat-cli" class="transition-colors hover:text-hd-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hd-orange">cleat-cli</a>
+        <a href="/" class="transition-colors hover:text-hd-orange focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hd-orange">English</a>
       </nav>
     </div>
   </footer>
