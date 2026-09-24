@@ -1,6 +1,6 @@
 # cleat-landing
 
-Static landing page for [Cleat](https://github.com/puppe1990/cleat-deploy) —
+Static landing page for [Cleat](https://github.com/cleat-cloud/cleat-deploy) —
 a self-hosted PaaS. Built with htmx and Tailwind CSS, bilingual (EN / PT-BR).
 
 ## Edit
