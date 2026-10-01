@@ -5,10 +5,16 @@
   "description": "Landing page for Cleat — self-hosted PaaS (htmx + Tailwind, EN/PT-BR)",
   "scripts": {
     "build:css": "tailwindcss -i src/input.css -o assets/styles.css --minify",
-    "check:css": "tailwindcss -i src/input.css -o /tmp/cleat-landing-check.css --minify && diff -q /tmp/cleat-landing-check.css assets/styles.css"
+    "check:css": "tailwindcss -i src/input.css -o /tmp/cleat-landing-check.css --minify && diff -q /tmp/cleat-landing-check.css assets/styles.css",
+    "check:html": "html-validate index.html pt/index.html partials/*.html pt/partials/*.html",
+    "check:links": "node scripts/check-links.mjs",
+    "test:smoke": "playwright test"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@playwright/test": "^1.55.1",
     "@tailwindcss/cli": "4.3.3",
+    "html-validate": "^9.7.1",
     "tailwindcss": "4.3.3"
   }
 }

@@ -21,6 +21,8 @@ npm run build:css
 
 `npm run check:css` fails if the committed CSS is out of sync.
 
+CI also validates HTML (`npm run check:html`), checks that internal `href`/`src`/`hx-get` targets exist (`npm run check:links`), and runs Playwright smoke tests for `index.html` and `pt/index.html` plus a WCAG A/AA axe scan (`npm run test:smoke`). Chromium install adds about a minute on GitHub Actions.
+
 ## Deploy
 
 ```bash
