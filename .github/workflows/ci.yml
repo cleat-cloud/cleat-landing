@@ -29,3 +29,15 @@ jobs:
                    pt/partials/panel.html pt/partials/cli.html pt/partials/mcp.html; do
             test -s "$f" || { echo "missing or empty: $f"; exit 1; }
           done
+
+      - name: HTML is valid
+        run: npm run check:html
+
+      - name: Internal links and assets exist
+        run: npm run check:links
+
+      - name: Install Chromium for smoke tests
+        run: npx playwright install --with-deps chromium
+
+      - name: Browser smoke (EN + PT-BR) and axe
+        run: npm run test:smoke
