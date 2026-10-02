@@ -41,3 +41,30 @@ jobs:
 
       - name: Browser smoke (EN + PT-BR) and axe
         run: npm run test:smoke
+
+  deploy:
+    needs: check
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: cleat-cloud/cleat-cli
+          path: .cleat-cli
+
+      - uses: erlef/setup-beam@v1
+        with:
+          elixir-version: "1.17"
+          otp-version: "27"
+
+      - name: Build cleat CLI
+        working-directory: .cleat-cli
+        run: mix deps.get && mix escript.build
+
+      - name: Publish landing
+        env:
+          CLEAT_PANEL_URL: ${{ secrets.CLEAT_PANEL_URL }}
+          CLEAT_TOKEN: ${{ secrets.CLEAT_TOKEN }}
+        run: .cleat-cli/cleat drop . --app cleat --watch
