@@ -25,15 +25,19 @@ CI also validates HTML (`npm run check:html`), checks that internal `href`/`src`
 
 ## Deploy
 
+Merges to `main` publish automatically (`cleat drop . --app cleat --watch`)
+after CI (`npm ci`, `check:css` with Tailwind 4.3.3, HTML/link checks, smoke).
+Repo secrets: `CLEAT_PANEL_URL` (https://paas.gestaobem.com) and `CLEAT_TOKEN`.
+
+Emergency / local:
+
 ```bash
-cleat drop . --app cleat
+npm ci
+npm run build:css   # only if markup or src/input.css changed; then commit the CSS
+cleat drop . --app cleat --watch
 ```
 
-Served as a static app at https://cleat.sites.gestaobem.com.
-
-There is **no linked git repo and no push-to-deploy**: the static app `cleat`
-was created with `cleat drop`, so every content change must be published with
-the command above (run `npm run build:css` and commit first if the markup
-changed).
+Rollback: revert the merge on `main` and push (the deploy job republishes), or
+check out the last good commit and run the local drop command.
 
 Live: https://cleat.sites.gestaobem.com (EN) · https://cleat.sites.gestaobem.com/pt/ (PT-BR)
